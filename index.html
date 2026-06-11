@@ -3,221 +3,477 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Terms of Service — getpatients.health</title>
-<meta name="description" content="Terms of Service for getpatients.health — patient acquisition for privately-owned TRT, GLP-1, and peptide clinics." />
-<meta name="robots" content="noindex,follow" />
+<title>How many patients are you missing? — getpatients.health</title>
+<meta name="description" content="Free calculator for TRT, GLP-1, and peptide clinics. Move two sliders. See how many cash-pay patients you're missing every month. Built by getpatients.health." />
+<meta property="og:title" content="How many cash-pay patients is your clinic missing every month?" />
+<meta property="og:description" content="Free calculator. Two sliders. See your number in 5 seconds. Built for TRT, GLP-1, and peptide clinics." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ========= META PIXEL ========= -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '772895311787876');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=772895311787876&ev=PageView&noscript=1" /></noscript>
+
 <style>
   :root{
     --bg:#FBF8F2; --bg-soft:#F5EFE2; --bg-card:#FFFFFF;
     --ink:#0F2330; --ink-soft:#2C4651;
     --muted:#5F7682; --rule:#E5DFD2;
-    --clay:#D9633C; --hl:#FFF0A1;
-    --navy:#0F2330; --navy-deep:#091621;
+    --clay:#D9633C; --clay-dark:#B7502E;
+    --hl:#FFF0A1;
+    --navy:#0F2330; --navy-deep:#091621; --navy-mid:#142A3A;
+    --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0;font-family:"Inter",-apple-system,sans-serif;
-    background:var(--bg);color:var(--ink-soft);line-height:1.7;
-    -webkit-font-smoothing:antialiased;font-size:16px;
+    margin:0;font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--clay);text-decoration:none;border-bottom:1px solid rgba(217,99,60,.25);transition:border-color .15s ease}
-  a:hover{border-color:var(--clay)}
-  h1,h2{font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:600;color:var(--ink);letter-spacing:-.022em;margin:0}
-  h1{font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.03em}
-  h2{font-size:21px;line-height:1.3;margin-top:44px;margin-bottom:14px;letter-spacing:-.018em}
-  p{margin:0 0 16px}
-  ul{padding-left:20px;margin:0 0 18px}
-  li{margin-bottom:8px}
-  strong{color:var(--ink);font-weight:600}
-  .caps{text-transform:uppercase;letter-spacing:.02em;font-size:14px;color:var(--ink);font-weight:600}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:600;letter-spacing:-.022em;margin:0}
+  h1{font-size:clamp(28px,3.8vw,46px);line-height:1.06;letter-spacing:-.028em}
+  h2{font-size:clamp(26px,3.2vw,40px);line-height:1.08;letter-spacing:-.026em}
+  h3{font-size:22px;line-height:1.25;letter-spacing:-.018em}
+  em{font-style:italic}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
 
-  /* ===== TOP STRIP ===== */
+  /* ===== TOP STRIP — minimal nav, logo only ===== */
   .top-strip{
     background:var(--navy-deep);color:#fff;padding:18px 0;
     border-bottom:1px solid rgba(255,255,255,.06);
   }
   .top-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:600;font-size:19px;color:#fff;letter-spacing:-.022em;text-decoration:none;border:none}
-  .logo:hover{border:none}
+  .logo{display:flex;align-items:center;gap:11px;font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:600;font-size:20px;color:#fff;letter-spacing:-.022em}
   .logo-mark{
-    width:32px;height:32px;border-radius:8px;background:#fff;
+    width:34px;height:34px;border-radius:9px;background:#fff;
     display:flex;align-items:center;justify-content:center;color:var(--navy);
-    font-weight:700;font-size:16px;letter-spacing:-.022em;position:relative;
+    font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.022em;position:relative;
   }
-  .logo-mark::after{content:"";position:absolute;right:5px;bottom:5px;width:4px;height:4px;border-radius:50%;background:var(--clay)}
-  .back-link{
-    color:rgba(255,255,255,.65);font-size:13.5px;font-weight:500;border:none;
-    display:flex;align-items:center;gap:6px;
-  }
-  .back-link:hover{color:#fff;border:none}
+  .logo-mark::after{content:"";position:absolute;right:5px;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--clay)}
+  .top-tag{font-size:12.5px;letter-spacing:.16em;font-weight:600;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  @media (max-width:600px){.top-tag{display:none}}
 
-  /* ===== LEGAL PAGE ===== */
-  .legal-page{padding:72px 0 96px}
-  .wrap-narrow{max-width:760px;margin:0 auto;padding:0 28px}
-  .legal-meta{
-    font-size:12px;letter-spacing:.22em;font-weight:700;text-transform:uppercase;
-    color:var(--clay);margin-bottom:18px;
+  /* ===== DR HERO — navy band, compact ===== */
+  .dr-hero{
+    background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 100%);
+    color:#fff;padding:36px 0 120px;position:relative;overflow:hidden;text-align:center;
   }
-  .legal-body{margin-top:28px}
-  .legal-body p:first-of-type{font-size:17px;color:var(--ink);line-height:1.65;margin-bottom:24px}
+  .dr-hero::before{
+    content:"";position:absolute;inset:-20%;pointer-events:none;
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 0%,rgba(217,99,60,.18),transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%,rgba(255,240,161,.05),transparent 65%);
+  }
+  .dr-hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.04) 1px,transparent 0);
+    background-size:32px 32px;opacity:.5;mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);
+  }
+  .dr-hero-inner{position:relative}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    text-transform:uppercase;letter-spacing:.22em;font-weight:700;font-size:11.5px;
+    color:var(--clay);background:rgba(217,99,60,.1);
+    padding:9px 18px;border-radius:99px;margin-bottom:24px;
+    border:1px solid rgba(217,99,60,.2);
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--clay);box-shadow:0 0 8px rgba(217,99,60,.6)}
+  .dr-hero h1{color:#fff;max-width:820px;margin:0 auto}
+  .dr-hero h1 em{color:var(--hl);font-style:italic;font-weight:500}
+  .dr-hero-sub{
+    font-size:16px;line-height:1.55;color:rgba(255,255,255,.78);
+    margin:18px auto 0;max-width:580px;
+  }
+  .dr-hero-sub strong{color:#fff;font-weight:600}
+
+  /* ===== CALCULATOR BAND ===== */
+  .calc-band{
+    padding:0 0 48px;position:relative;
+    background:
+      radial-gradient(ellipse 70% 50% at 88% 10%, rgba(217,99,60,.04), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 5% 90%, rgba(255,240,161,.05), transparent 65%),
+      var(--bg);
+  }
+  .calc-card{
+    background:var(--bg-card);border:1px solid var(--rule);border-radius:28px;
+    padding:38px 44px;max-width:1040px;margin:-160px auto 0;
+    box-shadow:0 8px 20px rgba(0,0,0,.18),0 40px 80px rgba(0,0,0,.22);
+    position:relative;z-index:5;overflow:hidden;
+  }
+  @media (max-width:680px){.calc-card{padding:28px 22px;border-radius:22px}}
+  .calc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:42px;align-items:start}
+  @media (max-width:880px){.calc-grid{grid-template-columns:1fr;gap:30px}}
+  .calc-controls{padding-top:4px}
+  .calc-controls h3{margin-bottom:6px;font-size:22px}
+  .calc-controls > p{color:var(--ink-soft);font-size:15px;line-height:1.6;margin:0 0 24px}
+  .calc-field{margin-bottom:24px}
+  .calc-field-label{
+    display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;
+    font-size:13px;font-weight:600;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;
+  }
+  .calc-field-label .v{font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:600;font-size:24px;color:var(--clay);letter-spacing:-.02em;text-transform:none}
+  .calc-slider{
+    -webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;
+    background:linear-gradient(90deg,var(--clay) 0%,var(--clay) var(--pct,40%),var(--rule) var(--pct,40%),var(--rule) 100%);
+    outline:none;cursor:pointer;
+  }
+  .calc-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;
+    background:var(--clay);border:3px solid #fff;cursor:pointer;
+    box-shadow:0 4px 12px rgba(217,99,60,.4);transition:transform .15s ease;
+  }
+  .calc-slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+  .calc-slider::-moz-range-thumb{
+    width:24px;height:24px;border-radius:50%;background:var(--clay);border:3px solid #fff;cursor:pointer;
+    box-shadow:0 4px 12px rgba(217,99,60,.4);
+  }
+  .calc-select{
+    width:100%;padding:14px 16px;border:1.5px solid var(--rule);border-radius:11px;
+    background:var(--bg-soft);font-family:inherit;font-size:15px;color:var(--ink);font-weight:500;
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'><path d='M1 1l6 6 6-6' stroke='%235F7682' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 18px center;cursor:pointer;
+  }
+  .calc-note{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+  .calc-results{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:#fff;border-radius:20px;padding:32px 34px;position:relative;overflow:hidden;
+  }
+  .calc-results::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(217,99,60,.12),transparent 70%);
+  }
+  .calc-results-inner{position:relative}
+  .calc-tag{
+    display:inline-block;font-size:11.5px;letter-spacing:.22em;font-weight:700;text-transform:uppercase;
+    color:var(--clay);background:rgba(217,99,60,.12);padding:6px 14px;border-radius:99px;margin-bottom:6px;
+    border:1px solid rgba(217,99,60,.2);
+  }
+  .calc-tag-sub{
+    font-size:11.5px;color:rgba(255,255,255,.55);
+    margin:0 0 14px;letter-spacing:.005em;font-weight:500;line-height:1.45;
+  }
+  .calc-tag-sub strong{color:rgba(255,255,255,.85);font-weight:600}
+  .calc-with .calc-tag-sub strong{color:var(--hl)}
+  .calc-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .calc-row:last-child{border-bottom:none}
+  .calc-row-label{color:rgba(255,255,255,.6);font-size:14px}
+  .calc-row-val{font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:500;font-size:20px;color:#fff;letter-spacing:-.015em}
+  .calc-row-val.big{font-size:28px;font-weight:600;color:var(--hl);letter-spacing:-.025em}
+  .calc-divider{height:1px;background:rgba(255,255,255,.1);margin:16px 0}
+  .calc-with{padding-top:14px}
+  .calc-with .calc-tag{background:rgba(255,240,161,.1);color:var(--hl);border-color:rgba(255,240,161,.18)}
+  .calc-delta{
+    margin-top:20px;padding:20px 22px;background:rgba(217,99,60,.14);border:1px solid rgba(217,99,60,.3);
+    border-radius:14px;
+  }
+  .calc-delta .lbl{font-size:12px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;color:var(--clay);margin-bottom:6px}
+  .calc-delta .v{font-family:"Satoshi","Inter",-apple-system,sans-serif;font-weight:700;font-size:36px;color:#fff;letter-spacing:-.025em;line-height:1.1}
+  .calc-delta .sub{color:rgba(255,255,255,.6);font-size:13px;margin-top:4px}
+  .calc-why{
+    margin-top:14px;padding-top:14px;
+    border-top:1px dashed rgba(255,255,255,.18);
+    font-size:12.5px;color:rgba(255,240,161,.85);line-height:1.55;
+  }
+  .calc-why strong{color:var(--hl);font-weight:600}
+
+  /* Embedded yellow CTA — sits in the dark calc result, impossible to miss */
+  .calc-cta-inline{
+    display:block;text-align:center;
+    margin-top:20px;padding:18px 24px;
+    background:var(--hl);color:var(--navy-deep);
+    border-radius:12px;font-weight:700;font-size:16px;
+    letter-spacing:-.005em;
+    transition:transform .15s ease,background .2s ease,box-shadow .25s ease;
+    box-shadow:0 8px 24px rgba(255,240,161,.35),0 0 0 0 rgba(255,240,161,.5);
+    animation:inlineCtaPulse 2.2s ease-in-out infinite;
+  }
+  .calc-cta-inline:hover{
+    background:#FFE869;transform:translateY(-2px);
+    box-shadow:0 14px 32px rgba(255,240,161,.55);
+  }
+  @keyframes inlineCtaPulse{
+    0%,100%{box-shadow:0 8px 24px rgba(255,240,161,.35),0 0 0 0 rgba(255,240,161,.4)}
+    50%{box-shadow:0 8px 24px rgba(255,240,161,.35),0 0 0 12px rgba(255,240,161,0)}
+  }
+
+  /* Source citation under calc */
+  .source-row{
+    max-width:1040px;margin:24px auto 0;padding:0 28px;
+    font-size:12.5px;color:var(--muted);line-height:1.65;text-align:center;
+  }
+  .source-row strong{color:var(--ink-soft);font-weight:600}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:#fff;padding:56px 0;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";position:absolute;inset:-20%;pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(217,99,60,.2),transparent 60%);
+  }
+  .cta-inner{position:relative;max-width:780px;margin:0 auto;padding:0 28px}
+  .cta-eyebrow{
+    font-size:11.5px;letter-spacing:.28em;font-weight:700;text-transform:uppercase;color:var(--hl);
+    margin-bottom:18px;
+  }
+  .cta-band h2{color:#fff;margin-bottom:18px;max-width:680px;margin-left:auto;margin-right:auto}
+  .cta-band h2 em{color:var(--hl);font-style:italic;font-weight:500}
+  .cta-band > .cta-inner > p{
+    font-size:17px;color:rgba(255,255,255,.78);line-height:1.6;margin:0 auto 36px;max-width:580px;
+  }
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--clay);color:#fff;padding:20px 38px;border-radius:13px;
+    font-weight:600;font-size:17px;border:1px solid var(--clay-dark);
+    box-shadow:0 14px 36px rgba(217,99,60,.45),0 0 0 0 rgba(217,99,60,.5);
+    transition:transform .2s var(--ease),box-shadow .25s ease,background .2s ease;
+    font-family:inherit;cursor:pointer;
+    animation:ctaPulse 2.4s ease-in-out infinite;
+  }
+  .btn-primary:hover{background:var(--clay-dark);transform:translateY(-3px);box-shadow:0 20px 48px rgba(217,99,60,.6)}
+  @keyframes ctaPulse{
+    0%,100%{box-shadow:0 14px 36px rgba(217,99,60,.45),0 0 0 0 rgba(217,99,60,.4)}
+    50%{box-shadow:0 14px 36px rgba(217,99,60,.45),0 0 0 14px rgba(217,99,60,0)}
+  }
+  .cta-foot{
+    margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.5);letter-spacing:.04em;
+  }
+  /* Trust pills */
+  .trust-pills{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:22px;margin-top:36px;
+    font-size:13.5px;color:rgba(255,255,255,.55);
+  }
+  .trust-pills span{display:flex;align-items:center;gap:8px}
+  .trust-pills .dot{width:6px;height:6px;border-radius:50%;background:#1FB573;box-shadow:0 0 8px rgba(31,181,115,.6)}
 
   /* ===== FOOTER ===== */
   footer{
     background:var(--navy-deep);color:rgba(255,255,255,.5);padding:32px 0 16px;font-size:13px;
-    border-top:1px solid rgba(255,255,255,.06);margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.06);
   }
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;max-width:1100px;margin:0 auto;padding:0 28px}
-  footer a{color:rgba(255,255,255,.7);border:none}
-  footer a:hover{color:#fff;border:none}
+  footer a{color:rgba(255,255,255,.7)}
+  footer a:hover{color:#fff}
+
+  /* ===== COMPLIANCE (Meta / FB ad approval) ===== */
   .compliance{
     background:var(--navy-deep);color:rgba(255,255,255,.32);
-    padding:18px 0 36px;font-size:11.5px;line-height:1.65;
+    padding:20px 0 40px;font-size:11.5px;line-height:1.7;
   }
-  .compliance .wrap-narrow{max-width:1100px}
+  .compliance .wrap{max-width:1100px;padding:0 28px;margin:0 auto}
   .compliance-links{
-    display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;
+    display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px;
     font-size:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);
   }
-  .compliance-links a{color:rgba(255,255,255,.55);border:none}
-  .compliance-links a:hover{color:#fff;border:none}
+  .compliance-links a{color:rgba(255,255,255,.55)}
+  .compliance-links a:hover{color:#fff}
   .compliance-links .sep{color:rgba(255,255,255,.2)}
-  .compliance p{margin:0 0 10px;max-width:920px;color:rgba(255,255,255,.32)}
+  .compliance p{margin:0 0 12px;max-width:920px}
   .compliance p:last-child{margin-bottom:0}
-
+  .compliance strong{color:rgba(255,255,255,.55);font-weight:600}
   @media (max-width:600px){
-    .legal-page{padding:48px 0 64px}
-    h2{margin-top:32px}
-    .compliance{font-size:11px}
+    .compliance{font-size:11px;padding:18px 0 32px}
+    .compliance-links{gap:12px}
+  }
+
+  /* ===== MOBILE TUNING ===== */
+  @media (max-width:760px){
+    .dr-hero{padding:24px 0 100px}
+    .dr-hero-sub{font-size:15px}
+    .calc-band{padding:0 0 32px}
+    .calc-card{padding:24px 20px;margin-top:-100px;border-radius:20px}
+    .calc-results{padding:24px 20px}
+    .calc-row-val.big{font-size:24px}
+    .calc-delta .v{font-size:30px}
+    .calc-cta-inline{padding:16px 20px;font-size:15px}
+    .cta-band{padding:48px 0}
+    .btn-primary{padding:18px 30px;font-size:16px;width:100%;justify-content:center;max-width:360px}
+    .trust-pills{gap:14px;font-size:12.5px}
   }
 </style>
 </head>
 <body>
 
+<!-- ============ TOP STRIP ============ -->
 <div class="top-strip">
   <div class="top-inner">
     <a class="logo" href="https://getpatients.health">
       <span class="logo-mark">gp</span>
       <span>getpatients<span style="color:rgba(255,255,255,.45);font-weight:500">.health</span></span>
     </a>
-    <a class="back-link" href="/">← Back to calculator</a>
+    <span class="top-tag">getpatients.health · Patient acquisition for independent clinics</span>
   </div>
 </div>
 
-<main class="legal-page">
-  <div class="wrap-narrow">
-    <div class="legal-meta">Last updated: June 11, 2026</div>
-    <h1>Terms of Service</h1>
+<!-- ============ DR HERO ============ -->
+<section class="dr-hero">
+  <div class="wrap dr-hero-inner">
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Free Calculator · TRT, GLP-1 &amp; Peptide Clinics
+    </div>
+    <h1>How many cash-pay patients are you <em>missing every month?</em></h1>
+    <p class="dr-hero-sub">
+      Move two sliders. See the math in 5 seconds. Built for TRT, GLP-1, and peptide clinics.
+    </p>
+  </div>
+</section>
 
-    <div class="legal-body">
+<!-- ============ CALCULATOR BAND ============ -->
+<section class="calc-band" id="calculator">
+  <div class="wrap">
 
-      <p>These Terms of Service ("Terms") govern your use of getpatients.health and related landing pages, calculators, quizzes, lead magnets, and services (collectively, the "Services") provided by getpatients.health ("we," "us," or "our").</p>
+    <div class="calc-card">
+      <div class="calc-grid">
 
-      <p>By accessing or using our Services, you agree to these Terms. If you do not agree, please do not use our Services.</p>
+        <div class="calc-controls">
+          <h3>Your inputs</h3>
+          <p>Two quick numbers. We do the rest.</p>
 
-      <h2>1. Eligibility</h2>
+          <div class="calc-field">
+            <div class="calc-field-label">
+              <span>Monthly ad spend</span>
+              <span class="v" id="spendOut">$7,500</span>
+            </div>
+            <input type="range" class="calc-slider" id="spend" min="2500" max="30000" step="500" value="7500" />
+            <div class="calc-note">$5K minimum for the guarantee. Most clinics scale at $7.5K–$15K.</div>
+          </div>
 
-      <p>You must be at least 18 years old and authorized to bind a U.S.-based business to these Terms. Our Services are intended for owners, operators, and decision-makers of privately-owned, U.S.-based TRT (testosterone replacement therapy), GLP-1 (medical weight loss), and peptide clinics. If you do not meet these criteria, please do not use our Services.</p>
+          <div class="calc-field">
+            <div class="calc-field-label">
+              <span>Your vertical</span>
+              <span class="v" id="ltvOut">$2,400</span>
+            </div>
+            <select class="calc-select" id="vertical">
+              <option value="trt">TRT / Hormone replacement</option>
+              <option value="glp1">GLP-1 / Medical weight loss</option>
+              <option value="peptide">Peptide therapy</option>
+              <option value="multi" selected>Multiple (TRT + GLP-1 / Peptides)</option>
+            </select>
+            <div class="calc-note">Industry-average first-year patient revenue used as LTV.</div>
+          </div>
 
-      <h2>2. Description of Services</h2>
+          <div class="calc-field">
+            <div class="calc-field-label">
+              <span>Current lead response time</span>
+              <span class="v" id="respOut">47 min</span>
+            </div>
+            <select class="calc-select" id="response">
+              <option value="under5">Under 5 minutes</option>
+              <option value="under30">5–30 minutes</option>
+              <option value="under60">30 minutes to 1 hour</option>
+              <option value="industry" selected>Industry average (47 min)</option>
+              <option value="over60">Over an hour</option>
+            </select>
+            <div class="calc-note">Documented industry average for private clinics: 47 minutes. Hims and Ro respond in under 60 seconds.</div>
+          </div>
+        </div>
 
-      <p>getpatients.health is a marketing services agency. We help privately-owned clinics build and operate patient acquisition systems including paid advertising campaigns, landing pages, AI voice agents, booking automation, and reporting.</p>
+        <div class="calc-results">
+          <div class="calc-results-inner">
 
-      <p>Use of our public-facing tools — including our calculator, quiz, audit call form, lead magnets, and educational content — does not create an agency-client relationship between you and us. A formal services relationship requires a signed written services agreement that supersedes these Terms with respect to the specific engagement.</p>
+            <div>
+              <span class="calc-tag">Without getpatients.health</span>
+              <div class="calc-tag-sub"><strong>47-min avg response.</strong> Most leads cool off before you call back.</div>
+              <div class="calc-row">
+                <span class="calc-row-label">Monthly leads</span>
+                <span class="calc-row-val" id="leadsOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">Booked consults</span>
+                <span class="calc-row-val" id="bookedNoOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">Show + close</span>
+                <span class="calc-row-val" id="closedNoOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">New revenue / mo</span>
+                <span class="calc-row-val big" id="revNoOut">—</span>
+              </div>
+            </div>
 
-      <h2>3. Not medical advice</h2>
+            <div class="calc-divider"></div>
 
-      <p>getpatients.health is a marketing services agency, not a medical provider. We do not provide medical advice, diagnose conditions, prescribe medications, or recommend treatments. We do not endorse any specific medication, therapy, or treatment protocol — including testosterone replacement therapy (TRT), GLP-1 receptor agonists (including but not limited to semaglutide and tirzepatide), or compounded peptides. All clinical, medical, and treatment decisions are the sole responsibility of licensed healthcare providers at each clinic.</p>
+            <div class="calc-with">
+              <span class="calc-tag">With getpatients.health</span>
+              <div class="calc-tag-sub"><strong>Under 5-min response.</strong> We call every lead before they cool off.</div>
+              <div class="calc-row">
+                <span class="calc-row-label">Monthly leads</span>
+                <span class="calc-row-val" id="leadsWithOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">Booked consults</span>
+                <span class="calc-row-val" id="bookedWithOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">Show + close</span>
+                <span class="calc-row-val" id="closedWithOut">—</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-row-label">New revenue / mo</span>
+                <span class="calc-row-val big" id="revWithOut">—</span>
+              </div>
+            </div>
 
-      <h2>4. Calculator and projections</h2>
+            <div class="calc-delta">
+              <div class="lbl">Projected new monthly revenue</div>
+              <div class="v" id="deltaOut">—</div>
+              <div class="sub" id="deltaSubOut">—</div>
+              <div class="calc-why"><strong>Why the gap:</strong> we call your leads in under 5 minutes. Industry average is 47.</div>
+              <a class="calc-cta-inline" href="https://quiz.getpatients.health" id="quizCtaInline">
+                See if your clinic qualifies →
+              </a>
+            </div>
 
-      <p>The revenue projections shown by our calculator and similar tools are estimates based on documented industry averages, including but not limited to Harvard Business Review's lead-response benchmarks, InsideSales / Velocify response-time data, and 2026 Meta cash-pay medical advertising cost-per-lead ranges.</p>
+          </div>
+        </div>
 
-      <p>These projections are <strong>not guarantees</strong> of any specific outcome. Actual results depend on factors specific to your clinic — including but not limited to your offer, market, operations, team performance, ad approval status, regulatory compliance, and execution — and may be higher, lower, or different than the projections shown. Past results do not predict future performance. getpatients.health does not guarantee any specific revenue, patient volume, lead volume, or other outcome except as expressly stated in a signed written services agreement.</p>
+      </div>
+    </div>
 
-      <h2>5. User conduct</h2>
+    <div class="source-row">
+      <strong>How we got these numbers.</strong> First-year patient LTV: industry-published averages for cash-pay TRT, GLP-1, and peptide clinics. Lead response impact: Harvard Business Review's foundational 5-minute response study (calls inside 5 minutes convert ~9× higher than 30 minutes) plus the InsideSales / Velocify benchmarks. CPLs: 2026 Meta cash-pay-medical advertising benchmarks. Close rate: 30% clinic-side baseline. Conservative throughout — not best case. getpatients.health.
+    </div>
 
-      <p>You agree not to:</p>
+  </div>
+</section>
 
-      <ul>
-        <li>Use our Services for any unlawful purpose or in violation of any applicable law</li>
-        <li>Misrepresent your identity, business, or affiliation</li>
-        <li>Attempt to access areas of our site you are not authorized to access</li>
-        <li>Reverse engineer, scrape, copy, or systematically extract our content without our written permission</li>
-        <li>Use our content, frameworks, or proprietary information to compete with us</li>
-        <li>Upload viruses, malware, or other harmful code</li>
-        <li>Interfere with the proper functioning of our Services</li>
-        <li>Use our Services in any way that could harm or disable them</li>
-      </ul>
+<!-- ============ SECONDARY CTA BAND (for scrollers) ============ -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Ready to act on the number?</div>
+    <a class="btn-primary" href="https://quiz.getpatients.health" id="quizCta">
+      Take the 2-min fit quiz
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <div class="cta-foot">Two minutes. No salesy stuff. No commitment.</div>
 
-      <h2>6. Intellectual property</h2>
-
-      <p>All content on our site and in our Services — including text, graphics, logos, the getpatients.health brand and trademarks, the patient acquisition framework, the 5-stage system methodology, calculators, quizzes, lead magnets, educational materials, and code — is owned by getpatients.health or our licensors and is protected by U.S. and international copyright, trademark, and other intellectual property laws.</p>
-
-      <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of our content without our prior written permission, except as expressly permitted by these Terms.</p>
-
-      <h2>7. Third-party links and services</h2>
-
-      <p>Our Services may contain links to third-party websites or use third-party services (such as Calendly for scheduling, Meta Pixel for analytics, and Vapi for AI voice demonstrations). We are not responsible for the content, privacy practices, or policies of third-party sites or services. Your use of third-party services is governed by their respective terms.</p>
-
-      <h2>8. Disclaimers</h2>
-
-      <p class="caps">Our Services, including our calculator, quiz, and educational content, are provided "as is" and "as available" without warranties of any kind, either express or implied.</p>
-
-      <p class="caps">To the maximum extent permitted by applicable law, we disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising from course of dealing or usage of trade. We do not warrant that our Services will be uninterrupted, secure, error-free, or that defects will be corrected.</p>
-
-      <h2>9. Limitation of liability</h2>
-
-      <p class="caps">To the maximum extent permitted by applicable law, in no event will getpatients.health, its officers, directors, employees, contractors, agents, suppliers, or licensors be liable for any indirect, incidental, consequential, special, exemplary, or punitive damages arising from or related to your use of our Services, even if we have been advised of the possibility of such damages.</p>
-
-      <p class="caps">Our total cumulative liability for any claim arising from or related to these Terms or your use of our Services will not exceed the greater of (a) the total amount you have paid us in the twelve (12) months immediately preceding the event giving rise to the claim, or (b) one hundred U.S. dollars ($100).</p>
-
-      <p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability is limited to the extent permitted by law.</p>
-
-      <h2>10. Indemnification</h2>
-
-      <p>You agree to defend, indemnify, and hold harmless getpatients.health and its officers, directors, employees, contractors, agents, suppliers, and licensors from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms, your use or misuse of our Services, your violation of any law or third-party right, or any content you submit to us.</p>
-
-      <h2>11. Termination</h2>
-
-      <p>We may suspend or terminate your access to our Services at any time, for any reason, with or without notice. Upon termination, your right to use our Services will immediately cease. Provisions of these Terms that by their nature should survive termination — including but not limited to intellectual property, disclaimers, limitation of liability, indemnification, and governing law — will survive.</p>
-
-      <h2>12. Governing law and dispute resolution</h2>
-
-      <p>These Terms are governed by the laws of the State of Texas, without regard to its conflict of law principles. You agree that any dispute arising from or relating to these Terms or our Services will be resolved exclusively in the state or federal courts located in Texas, and you consent to personal jurisdiction in those courts.</p>
-
-      <p>Nothing in this section limits either party's right to seek injunctive or equitable relief in any court of competent jurisdiction to protect intellectual property rights.</p>
-
-      <h2>13. Severability</h2>
-
-      <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining Terms remain in full force and effect.</p>
-
-      <h2>14. Entire agreement</h2>
-
-      <p>These Terms, together with our Privacy Policy and any signed written services agreement, constitute the entire agreement between you and getpatients.health regarding our Services and supersede all prior agreements and understandings.</p>
-
-      <h2>15. Changes to these Terms</h2>
-
-      <p>We may update these Terms from time to time. The "Last updated" date at the top of this page reflects the latest revision. Continued use of our Services after changes means you accept the updated Terms. If you do not agree to the updated Terms, you must stop using our Services.</p>
-
-      <h2>16. Contact us</h2>
-
-      <p>Questions about these Terms? Contact us:</p>
-
-      <p>
-        Email: <a href="mailto:hello@getpatients.health">hello@getpatients.health</a><br>
-        Website: <a href="https://getpatients.health">getpatients.health</a>
-      </p>
-
+    <div class="trust-pills">
+      <span><span class="dot"></span>Built for TRT, GLP-1, and peptide clinics</span>
+      <span><span class="dot"></span>Pay-for-performance</span>
+      <span><span class="dot"></span>Live in 7 days</span>
     </div>
   </div>
-</main>
+</section>
 
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
     <div>© 2026 getpatients.health — Patient acquisition for privately-owned TRT, GLP-1, and peptide clinics.</div>
@@ -225,8 +481,9 @@
   </div>
 </footer>
 
+<!-- ============ COMPLIANCE (Meta / FB ad approval) ============ -->
 <section class="compliance">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="compliance-links">
       <a href="/privacy">Privacy Policy</a>
       <span class="sep">·</span>
@@ -234,10 +491,138 @@
       <span class="sep">·</span>
       <a href="mailto:hello@getpatients.health">Contact</a>
     </div>
+
     <p><strong>Not affiliated with Meta or Facebook.</strong> This site is not part of Facebook, Meta, or any Meta-owned property. Meta does not endorse this site or its services. FACEBOOK, INSTAGRAM, and META are trademarks of Meta Platforms, Inc.</p>
-    <p>getpatients.health is a marketing services agency, not a medical provider. We do not provide medical advice, diagnose conditions, or recommend treatments. All clinical decisions are the responsibility of licensed healthcare providers at each clinic.</p>
+
+    <p><strong>Results disclaimer.</strong> The projections shown by the calculator are estimates based on documented industry averages — including but not limited to Harvard Business Review's lead response benchmarks, InsideSales/Velocify response-time data, and 2026 Meta cash-pay medical advertising cost-per-lead ranges. They are not guarantees of any specific outcome. Actual results depend on factors specific to your clinic — your offer, market, operations, team performance, ad approval, and execution — and may be higher, lower, or different than the projections shown. getpatients.health does not guarantee specific revenue or patient volume except as expressly stated in a signed written services agreement.</p>
+
+    <p><strong>Medical disclaimer.</strong> getpatients.health is a marketing services agency, not a medical provider. We do not provide medical advice, diagnose conditions, prescribe treatments, or otherwise practice medicine. All clinical, medical, and treatment decisions are the sole responsibility of licensed healthcare providers at each clinic. getpatients.health does not endorse any specific medication, therapy, or treatment regimen including but not limited to testosterone replacement therapy (TRT), GLP-1 receptor agonists, or compounded peptides.</p>
+
+    <p><strong>Privacy &amp; data.</strong> By using this calculator and the linked quiz, you agree to our Privacy Policy and Terms of Service. We use Meta Pixel and similar analytics to measure ad performance. No personal health information is collected on this page. Quiz responses are stored securely and used only to evaluate fit for our services.</p>
   </div>
 </section>
+
+<!-- ============ CALCULATOR JS ============ -->
+<script>
+/* =====================================================
+   ROI CALCULATOR — identical math to main site
+   Industry assumptions:
+   - LTV: industry-average first-year cash-pay revenue
+   - Response time: Harvard 5-min lead-response benchmark
+   - Show rate: 50% baseline, 70% with our system
+   - Close rate: 30% clinic-side baseline (same for both)
+   - CPLs: Meta cash-pay medical benchmarks 2026
+   ===================================================== */
+(function(){
+  const spend = document.getElementById('spend');
+  const vertical = document.getElementById('vertical');
+  const response = document.getElementById('response');
+
+  const spendOut = document.getElementById('spendOut');
+  const ltvOut = document.getElementById('ltvOut');
+  const respOut = document.getElementById('respOut');
+
+  const leadsOut = document.getElementById('leadsOut');
+  const bookedNoOut = document.getElementById('bookedNoOut');
+  const closedNoOut = document.getElementById('closedNoOut');
+  const revNoOut = document.getElementById('revNoOut');
+
+  const leadsWithOut = document.getElementById('leadsWithOut');
+  const bookedWithOut = document.getElementById('bookedWithOut');
+  const closedWithOut = document.getElementById('closedWithOut');
+  const revWithOut = document.getElementById('revWithOut');
+
+  const deltaOut = document.getElementById('deltaOut');
+  const deltaSubOut = document.getElementById('deltaSubOut');
+
+  // Avg first-year patient revenue (industry-average LTVs)
+  const LTV = { trt: 2000, glp1: 2200, peptide: 1800, multi: 2400 };
+  // Avg cost-per-lead by vertical (Meta 2026 cash-pay medical benchmarks)
+  const CPL = { trt: 45, glp1: 38, peptide: 50, multi: 42 };
+  // Vertical labels
+  const VLBL = { trt: 'TRT clinic', glp1: 'GLP-1 clinic', peptide: 'Peptide clinic', multi: 'Multi-vertical clinic' };
+
+  // Response time → booking rate WITHOUT our system
+  const BOOK_NO = { under5: 0.55, under30: 0.32, under60: 0.20, industry: 0.14, over60: 0.09 };
+  const RESP_LBL = { under5: 'Under 5 min', under30: '5–30 min', under60: '30–60 min', industry: '47 min', over60: '60+ min' };
+
+  // WITH our system (5-min AI response): 70% book rate
+  const BOOK_WITH = 0.70;
+  // Show rates
+  const SHOW_NO = 0.50;
+  const SHOW_WITH = 0.70;
+  // Close rate (clinic side, same for both)
+  const CLOSE = 0.30;
+
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+
+  function update(){
+    const s = parseInt(spend.value, 10);
+    const v = vertical.value;
+    const r = response.value;
+    const ltv = LTV[v], cpl = CPL[v], bookNo = BOOK_NO[r];
+
+    // Slider fill
+    const pct = ((s - parseInt(spend.min, 10)) / (parseInt(spend.max, 10) - parseInt(spend.min, 10))) * 100;
+    spend.style.setProperty('--pct', pct + '%');
+
+    spendOut.textContent = '$' + s.toLocaleString();
+    ltvOut.textContent = '$' + ltv.toLocaleString();
+    respOut.textContent = RESP_LBL[r];
+
+    const leads = s / cpl;
+    const bookedNo = leads * bookNo;
+    const showedNo = bookedNo * SHOW_NO;
+    const closedNo = showedNo * CLOSE;
+    const revNo = closedNo * ltv;
+
+    const bookedWith = leads * BOOK_WITH;
+    const showedWith = bookedWith * SHOW_WITH;
+    const closedWith = showedWith * CLOSE;
+    const revWith = closedWith * ltv;
+
+    const delta = revWith - revNo;
+    const deltaPatients = closedWith - closedNo;
+
+    leadsOut.textContent = Math.round(leads).toLocaleString();
+    bookedNoOut.textContent = Math.round(bookedNo).toLocaleString();
+    closedNoOut.textContent = Math.round(closedNo).toLocaleString();
+    revNoOut.textContent = fmt(revNo);
+
+    leadsWithOut.textContent = Math.round(leads).toLocaleString();
+    bookedWithOut.textContent = Math.round(bookedWith).toLocaleString();
+    closedWithOut.textContent = Math.round(closedWith).toLocaleString();
+    revWithOut.textContent = fmt(revWith);
+
+    deltaOut.textContent = '+' + fmt(delta) + ' / mo';
+    const roi = delta / s;
+    deltaSubOut.textContent = '+' + Math.round(deltaPatients) + ' new patients · ' + roi.toFixed(1) + '× ROI on ad spend · projected for a ' + VLBL[v].toLowerCase();
+  }
+
+  spend.addEventListener('input', update);
+  vertical.addEventListener('change', update);
+  response.addEventListener('change', update);
+  update();
+})();
+
+/* =====================================================
+   META PIXEL HOOKS — fires on both CTAs (inline + bottom)
+   ===================================================== */
+(function(){
+  ['quizCtaInline', 'quizCta'].forEach(function(id){
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('click', function(){
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Calculator Landing → Quiz',
+          source: id === 'quizCtaInline' ? 'inline_delta' : 'bottom_cta'
+        });
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
