@@ -96,6 +96,32 @@ fbq('track', 'PageView');
   }
   .dr-hero-sub strong{color:#fff;font-weight:600}
 
+  /* Mobile-only express CTA — for prospects already convinced */
+  .skip-cta{display:none}
+  @media (max-width:760px){
+    .skip-cta{
+      display:block;text-align:center;
+      margin:26px auto 28px;
+      position:relative;z-index:6;
+    }
+    .skip-cta a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:12px 22px;border-radius:99px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:13.5px;font-weight:600;letter-spacing:0;
+      transition:background .2s ease,border-color .2s ease,transform .15s ease;
+    }
+    .skip-cta a:hover,
+    .skip-cta a:active{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.4);
+      transform:translateY(-1px);
+    }
+    .skip-cta a span.arrow{color:var(--hl);font-weight:700}
+  }
+
   /* ===== CALCULATOR BAND ===== */
   .calc-band{
     padding:0 0 48px;position:relative;
@@ -297,7 +323,7 @@ fbq('track', 'PageView');
     .dr-hero{padding:24px 0 100px}
     .dr-hero-sub{font-size:15px}
     .calc-band{padding:0 0 32px}
-    .calc-card{padding:24px 20px;margin-top:-100px;border-radius:20px}
+    .calc-card{padding:24px 20px;margin-top:-60px;border-radius:20px}
     .calc-results{padding:24px 20px}
     .calc-row-val.big{font-size:24px}
     .calc-delta .v{font-size:30px}
@@ -332,6 +358,11 @@ fbq('track', 'PageView');
     <p class="dr-hero-sub">
       Move two sliders. See the math in 5 seconds. Built for TRT, GLP-1, and peptide clinics.
     </p>
+    <div class="skip-cta">
+      <a href="https://quiz.getpatients.health" id="quizCtaTop">
+        Already convinced? Take the 2-min quiz <span class="arrow">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -609,14 +640,19 @@ fbq('track', 'PageView');
    META PIXEL HOOKS — fires on both CTAs (inline + bottom)
    ===================================================== */
 (function(){
-  ['quizCtaInline', 'quizCta'].forEach(function(id){
+  const sources = {
+    quizCtaTop: 'mobile_skip',
+    quizCtaInline: 'inline_delta',
+    quizCta: 'bottom_cta'
+  };
+  Object.keys(sources).forEach(function(id){
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('click', function(){
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
           content_name: 'Calculator Landing → Quiz',
-          source: id === 'quizCtaInline' ? 'inline_delta' : 'bottom_cta'
+          source: sources[id]
         });
       }
     });
